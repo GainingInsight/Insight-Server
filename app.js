@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var sessionRoutes = require('./controllers/session');
+var sessionRoutes = require('./routes/session');
 
 var app = express();
 
