@@ -82,12 +82,12 @@ var SampleSessionItem = {
 //Delete table if it already exists, then recreate it and add sample data
 dynamodb.deleteTable({ TableName: "insightgeneral" }, function(errI, dataI) {
     if(errI) console.log(errI);
-    sleep.sleep(4);
+    sleep.sleep(6);
     dynamodb.createTable(InsightGeneral, function(errJ, dataJ) {
         if(errJ) console.log(errJ, errJ.stack);
         else {
             console.log("Created: " + JSON.stringify(dataJ) + '\n');
-            sleep.sleep(4);
+            sleep.sleep(6);
 
             dynamodb.putItem(SampleSessionItem, function(errK, dataK) {
                 if(errK) console.log(errK, errK.stack); // an error occurred
