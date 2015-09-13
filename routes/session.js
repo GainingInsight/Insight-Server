@@ -18,7 +18,8 @@ router.get('/auth/login', function(req, res, next) {
     // If it does, generate a token with secret from server, then send that to client
 
     var providedSessionId = '961OUk0u6Z' || req.query.session_id;
-    var providedSessionKey = 'ywQCyk8X58' || req.query.session_key;
+    var providedSessionKey = req.query.session_key;
+    console.log(providedSessionKey);
 
     table.getItem({ Key: { session_id: { S: providedSessionId } } }, function(err, data) {
         if(err) console.log(err, err.stack);
