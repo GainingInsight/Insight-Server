@@ -19,7 +19,6 @@ router.get('/auth/login', function(req, res, next) {
 
     var providedSessionId = '961OUk0u6Z' || req.query.session_id;
     var providedSessionKey = req.query.session_key;
-    console.log(providedSessionKey);
 
     table.getItem({ Key: { session_id: { S: providedSessionId } } }, function(err, data) {
         if(err) console.log(err, err.stack);
@@ -37,8 +36,6 @@ router.get('/auth/login', function(req, res, next) {
 
                 // Send token to client
                 var response = JSON.stringify({ token: token });
-
-                console.log(data);
 
                 res.status(200);
                 res.json(response);
